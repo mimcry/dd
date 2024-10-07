@@ -14,7 +14,7 @@ function Hamburger() {
   const list = ["Home", "About Me", "Contact Me", "Projects"];
   return (
     <React.Fragment  >
-      <Box ><Drawer open={openDrawer} onClose={() => setOpenDrawer(false)}  >
+      <Box ><Drawer open={openDrawer} onClose={() => setOpenDrawer(false)}   >
         <List >
          {list.map((page,index)=>(
            <Link to={page} spy={true} smooth={true}>

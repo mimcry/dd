@@ -11,7 +11,7 @@ import {
   Link,
   Button,
 } from "@mui/material";
-
+import { GitHub,  } from '@mui/icons-material';
 import Container from "@mui/material/Container";
 
 function Home() {
@@ -31,7 +31,7 @@ function Home() {
       description:
         "Personal portfolio where you can show your skills, projects and the field you're working on.",
       link: "https://github.com/mimcry/Personal_website_using_Material_UI-and-React_Js.git",
-      link2: "gautamsalon.com.np",
+      
     },
     {
       image: "foodie.png",
@@ -94,43 +94,44 @@ function Home() {
             What I have done
           </Typography>
           <Typography
-            sx={{ textAlign: "center", fontSize: "1.9rem", color: "#00abf0" }}
+            sx={{ textAlign: "center", fontSize: "1.9rem", color: "#00abf0",mb:5 }}
           >
             My <span style={{ color: "white" }}>Projects 📟</span>
           </Typography>
 
           <Grid container spacing={4}>
             {" "}
-            {data.map((data) => (
-              <Grid item lg={3} xs={12} md={6} sm={6}>
+            {data.map((item, index) => (
+              <Grid item lg={3} xs={12} md={6} sm={6} key={index}>
                 <Paper
-                  elevation={24}
+                  elevation={6}
                   sx={{
-                    bgcolor: "white",
-                    borderRadius: "35px",
-                    maxWidth: 345,
-                    alignSelf: "center",
+                    bgcolor: 'white',
+                    borderRadius: '15px',
+                    transition: 'transform 0.3s, box-shadow 0.3s',
+                    '&:hover': {
+                      transform: 'scale(1.05)',
+                      boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
+                    },
                   }}
                 >
                   <Card
                     sx={{
-                      maxWidth: 345,
-                      borderRadius: "15px",
-                      mt: 6,
-                      alignSelf: "center",
-                      height: 400,
-                      bgcolor: "#0d3959",
+                      borderRadius: '15px',
+                      bgcolor: '#0d3959',
+                      transition: 'transform 0.3s',
                     }}
                   >
                     <CardActionArea>
                       <CardMedia
                         component="img"
                         height="200"
-                        image={data.image}
-                        alt="hotel website"
+                        image={item.image}
+                        alt={item.type}
                         sx={{
-                          "&:hover": {
-                            transform: "scale(0.9)",
+                          transition: 'transform 0.3s',
+                          '&:hover': {
+                            transform: 'scale(1.05)',
                           },
                         }}
                       />
@@ -141,64 +142,59 @@ function Home() {
                           component="div"
                           color="white"
                         >
-                          {data.type}
+                          {item.type}
                         </Typography>
-                        <Typography
-                          variant="body2"
-                          color="gray"
-                          sx={{ height: 80 }}
-                        >
-                          {data.description}
+                        <Typography variant="body2" color="gray" sx={{ height: 80 }}>
+                          {item.description}
                         </Typography>
                         <Box
                           sx={{
-                            display: "flex",
-                            justifyContent: "center",
-                            mt: "2%",
+                            display: 'flex',
+                            justifyContent: 'center',
+                            mt: '2%',
                           }}
                         >
-                          <Link href={data.link}>
+                          <Link href={item.link} target="_blank" rel="noopener noreferrer">
                             <Button
                               sx={{
-                                backgroundColor: "#078ae8",
-                                fontSize: "1rem",
-                                borderRadius: "15px",
-                                color: "white",
-                                cursor: "pointer",
-
-                                padding: "5px 15px 5px",
-
-                                "&:hover": {
-                                  backgroundColor: "white",
-                                  color: "black",
+                                backgroundColor: '#078ae8',
+                                fontSize: '0.9rem',
+                                borderRadius: '15px',
+                                color: 'white',
+                                cursor: 'pointer',
+                                padding: '5px 10px',
+                                '&:hover': {
+                                  backgroundColor: 'white',
+                                  color: 'black',
+                                  boxShadow: '0 2px 10px rgba(0, 0, 0, 0.2)',
                                 },
                               }}
                             >
-                              Github
+                              <GitHub sx={{ mr: 1 }} /> GitHub
                             </Button>
                           </Link>
-                          {data.link2 ? (
-                            <Link href={data.link2}>
+                          {item.link2 && (
+                            <Link href={item.link2} target="_blank" rel="noopener noreferrer">
                               <Button
                                 sx={{
-                                  backgroundColor: "white",
-                                  fontSize: "1rem",
-                                  borderRadius: "15px",
-
-                                  color: "black",
-                                  cursor: "pointer",
-                                  marginLeft: "10px",
-                                  padding: "6px 10px 5px",
-                                  "&:hover": {
-                                    color: "white",
-                                    border: "1px solid white",
+                                  backgroundColor: 'white',
+                                  fontSize: '0.9rem',
+                                  borderRadius: '15px',
+                                  color: 'black',
+                                  cursor: 'pointer',
+                                  marginLeft: '10px',
+                                  padding: '6px 9px',
+                                  '&:hover': {
+                                    color: 'white',
+                                    backgroundColor: '#078ae8',
+                                    boxShadow: '0 2px 10px rgba(0, 0, 0, 0.2)',
                                   },
                                 }}
                               >
                                 Live Demo
                               </Button>
                             </Link>
-                          ) : null}
+                          )}
                         </Box>
                       </CardContent>
                     </CardActionArea>

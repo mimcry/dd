@@ -14,7 +14,15 @@ import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
 import GithubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/LinkedIn";
 import { motion } from "framer-motion";
-export default function Aboutus() {
+import Contact from "./Contact";
+import Footer from "./Footer";
+import Projects from "./Projects";
+import Services from "./Services";
+import Aboutus from "./Aboutus";
+import Myskills from './Myskills'
+import Myexperience from './Myexperience'
+
+export default function Home() {
   const downloadFile = () => {
     const cvFileName = "salongautam.pdf";
     const cvFileUrl = `${process.env.PUBLIC_URL}/salongautam.pdf`;
@@ -30,7 +38,7 @@ export default function Aboutus() {
     <div id="Home">
       <React.Fragment>
         <Container>
-          <Box sx={{ display: "flex", marginTop: "100px" }}>
+          <Box sx={{ display: "flex", marginTop: "20px" }}>
             <Grid container spacing={2} sx={{ marginTop: "auto" }}>
               <Grid item xs={12} lg={6} md={6}>
                 <Typography
@@ -215,6 +223,14 @@ export default function Aboutus() {
               </Grid>
             </Grid>
           </Box>
+          <Aboutus />
+          <Services />
+          <Projects />
+          <Myskills />
+         < Myexperience/>
+
+          <Contact />
+          <Footer />
         </Container>
       </React.Fragment>
     </div>

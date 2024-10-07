@@ -31,7 +31,7 @@ export default function Footer() {
           pt: 12,
           pb: 12,
           fontSize: { xs: "12px", md: "14px" },
-          mb:5,
+          mb:0,
           mt: 10,
         }}
       >
