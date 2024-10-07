@@ -16,7 +16,7 @@ const App = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md")); 
   const [value, setValue] = React.useState(0);
-
+  const isLargeScreen = useMediaQuery('(min-width:600px)');
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -30,10 +30,10 @@ const App = () => {
           zIndex: 1000,
           boxShadow: "none",
           width: "100%",
-          display:"flex",
-          justifyContent:"center",
-          alignItems:"center"
           
+          justifyContent: isLargeScreen ? "center" : null, 
+          alignItems: isLargeScreen ? "center" : null, 
+
         }}
       >
         <Toolbar>
